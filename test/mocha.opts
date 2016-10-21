@@ -1,0 +1,4 @@
+--ui bdd
+--compilers js:babel-register
+--require ignore-styles
+--recursive
