@@ -6,7 +6,7 @@ node_js:
 
 env:
   global:
-    - CODACY_PROJECT_TOKEN=
+    - CODACY_PROJECT_TOKEN=4814ccb7d6d244bab59ad0b776c30b10
 
 before_script:
   - date --rfc-2822

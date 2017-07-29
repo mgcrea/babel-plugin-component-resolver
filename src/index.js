@@ -2,6 +2,8 @@ import path from 'path';
 import findPkg from 'find-pkg';
 import {resolveSync, replaceExt, isDirectory, isFile, relativePathFromCwd, toLocalPath, toPosixPath} from './utils';
 
+const nodePathEnv = process.env.NODE_PATH;
+
 export default ({types: t}) => {
   //
   const isRequireCallExpression = nodePath =>
@@ -19,7 +21,7 @@ export default ({types: t}) => {
     }
 
     // Search the file under the custom root directories
-    const rootDirs = pluginOpts.root || [];
+    const rootDirs = (pluginOpts.root || []).concat(nodePathEnv ? [nodePathEnv] : []);
     if (!resolvedFile) {
       rootDirs.some((dir) => {
         resolvedFile = resolveSync(`./${source}`, {basedir: path.resolve(cwd, dir)});

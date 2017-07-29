@@ -22,7 +22,7 @@ describe('plugin', () => {
     const transformerOpts = {
       babelrc: false,
       plugins: [
-        [babelPlugin, {root: ['./test/fixtures/components', './test/fixtures/foo']}]
+        [babelPlugin, {root: ['./test/fixtures/components']}]
       ]
     };
 

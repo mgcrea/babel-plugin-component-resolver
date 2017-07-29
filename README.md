@@ -4,7 +4,11 @@
 
 Babel plugin to resolve components based on their dirname when an index file is not present.
 
-Let you drop `index.js` files when you only want to export one file/component:
+Let you drop `index.js` files when you only want to export a single file for a component.
+
+Useful for React with CSS modules, where you end up with one folder per component (.js & .css).
+
+Also enables extra root folders (think `NODE_PATH`) to look for exotic resolves.
 
 ## Usage
 
@@ -40,6 +44,16 @@ npm i --save-dev babel-plugin-component-resolver
     ```js
     {
       "plugins": [
+        "transform-object-rest-spread", "component-resolver"]
+      ]
+    }
+    ```
+
+1. The `root` option allows you to specify additional root folders to resolve files.
+
+    ```js
+    {
+      "plugins": [
         "transform-object-rest-spread",
         ["component-resolver", {
           "root": ["./src"]
@@ -47,6 +61,8 @@ npm i --save-dev babel-plugin-component-resolver
       ]
     }
     ```
+
+1. By default, the `NODE_PATH` env var will be processed to look for exotic resolves.
 
 ### Available scripts
 
