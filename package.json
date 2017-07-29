@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-component-resolver",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Babel plugin to resolve components based on their dirname when an index file is not present",
   "main": "lib/index.js",
   "author": "Olivier Louvignes <olivier@mgcrea.io>",
