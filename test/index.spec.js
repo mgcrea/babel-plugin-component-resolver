@@ -4,18 +4,18 @@ import expect from 'expect';
 import babelPlugin from '../src/index';
 
 describe('plugin', () => {
-
+  //
   function testRequireImport(source, output, opts) {
     it('with a require statement', () => {
       const code = `var something = require("${source}");`;
       const result = transform(code, opts);
       expect(result.code).toBe(`var something = require("${output}");`);
     });
-    // it('with an import statement', () => {
-    //   const code = `import something from "${source}";`;
-    //   const result = transform(code, opts);
-    //   expect(result.code).toBe(`import something from "${output}";`);
-    // });
+    it('with an import statement', () => {
+      const code = `import something from "${source}";`;
+      const result = transform(code, opts);
+      expect(result.code).toBe(`import something from "${output}";`);
+    });
   }
 
   describe('Babel Plugin', () => {
@@ -107,6 +107,5 @@ describe('plugin', () => {
         {...transformerOpts, filename: './test/fixtures/components/sub/sub1.js'}
       );
     });
-
   });
 });

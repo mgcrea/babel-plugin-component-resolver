@@ -1,6 +1,3 @@
-// import 'debug-utils';
-// NODE_PATH=$NODE_PATH:$PWD/src
-
 import path from 'path';
 import findPkg from 'find-pkg';
 import {resolveSync, replaceExt, isDirectory, isFile, relativePathFromCwd, toLocalPath, toPosixPath} from './utils';
@@ -12,7 +9,6 @@ export default ({types: t}) => {
     || (t.isMemberExpression(nodePath.node.callee) && t.isIdentifier(nodePath.node.callee.object, {name: 'require'}));
 
   const mapModule = (source, file, pluginOpts, cwd) => {
-
     let resolvedFile;
     const sourceBasename = path.basename(source);
 
@@ -75,7 +71,7 @@ export default ({types: t}) => {
       const startPath = (file.opts.filename === 'unknown') ? './' : file.opts.filename;
       const pkgFile = findPkg.sync(startPath);
       file.$cwd = pkgFile ? path.dirname(pkgFile) : process.cwd();
-      file.$imports = new Object();
+      file.$imports = new Object(); // eslint-disable-line
     },
     visitor: {
       ImportDeclaration: {
