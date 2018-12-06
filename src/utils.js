@@ -2,7 +2,7 @@ import {lstatSync} from 'fs';
 import resolve from 'resolve';
 import path from 'path';
 
-const defaultBabelExtensions = ['.js', '.jsx', '.es', '.es6'];
+const defaultBabelExtensions = ['.js', '.jsx', '.es', '.es6', '.ts'];
 
 export const toPosixPath = modulePath =>
   modulePath.replace(/\\/g, '/');
