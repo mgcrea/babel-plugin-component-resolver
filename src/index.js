@@ -1,13 +1,14 @@
 import path from 'path';
 import findPkg from 'find-pkg';
-import {resolveSync, replaceExt, isDirectory, isFile, relativePathFromCwd, toLocalPath, toPosixPath} from './utils';
+import {
+  resolveSync, replaceExt, isDirectory, isFile, relativePathFromCwd, toLocalPath, toPosixPath
+} from './utils';
 
 const nodePathEnv = process.env.NODE_PATH;
 
 export default ({types: t}) => {
   //
-  const isRequireCallExpression = nodePath =>
-    t.isIdentifier(nodePath.node.callee, {name: 'require'})
+  const isRequireCallExpression = nodePath => t.isIdentifier(nodePath.node.callee, {name: 'require'})
     || (t.isMemberExpression(nodePath.node.callee) && t.isIdentifier(nodePath.node.callee.object, {name: 'require'}));
 
   const mapModule = (source, file, pluginOpts, cwd) => {
@@ -16,7 +17,10 @@ export default ({types: t}) => {
 
     // Search the source basename under the regular root directory
     const fileDirname = path.dirname(file);
-    if (isDirectory(path.resolve(cwd, fileDirname, source)) && !isFile(path.resolve(cwd, fileDirname, source, 'index.js'))) {
+    if (
+      isDirectory(path.resolve(cwd, fileDirname, source))
+      && !isFile(path.resolve(cwd, fileDirname, source, 'index.js'))
+    ) {
       resolvedFile = resolveSync(`./${source}/${sourceBasename}`, {basedir: path.resolve(cwd, fileDirname)});
     }
 
@@ -70,7 +74,7 @@ export default ({types: t}) => {
 
   return {
     pre(file) {
-      const startPath = (file.opts.filename === 'unknown') ? './' : file.opts.filename;
+      const startPath = file.opts.filename === 'unknown' ? './' : file.opts.filename;
       const pkgFile = findPkg.sync(startPath);
       file.$cwd = pkgFile ? path.dirname(pkgFile) : process.cwd();
       file.$imports = new Object(); // eslint-disable-line

@@ -4,19 +4,16 @@ import path from 'path';
 
 const defaultBabelExtensions = ['.js', '.jsx', '.es', '.es6', '.ts'];
 
-export const toPosixPath = modulePath =>
-  modulePath.replace(/\\/g, '/');
+export const toPosixPath = modulePath => modulePath.replace(/\\/g, '/');
 
-export const toLocalPath = p =>
-  (p[0] !== '.' ? `./${p}` : p);
+export const toLocalPath = p => (p[0] !== '.' ? `./${p}` : p);
 
 export const replaceExt = (p, ext) => {
   const filename = path.basename(p, path.extname(p)) + ext;
   return path.join(path.dirname(p), filename);
 };
 
-export const toAbsolutePath = (cwd, filename) =>
-  (path.isAbsolute(filename) ? filename : path.resolve(cwd, filename));
+export const toAbsolutePath = (cwd, filename) => (path.isAbsolute(filename) ? filename : path.resolve(cwd, filename));
 
 export const relativePathFromCwd = (cwd, source, target) => {
   const from = toAbsolutePath(cwd, path.dirname(source));
