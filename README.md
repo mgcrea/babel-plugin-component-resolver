@@ -1,14 +1,13 @@
 # Babel Component Resolver Plugin
 
 [![npm version](https://img.shields.io/npm/v/babel-plugin-component-resolver.svg)](https://www.npmjs.com/package/babel-plugin-component-resolver)
-[![license](https://img.shields.io/github/license/mgcrea/babel-plugin-component-resolver.svg?style=flat)](https://tldrlegal.com/license/mit-license)
-[![build status](http://img.shields.io/travis/mgcrea/babel-plugin-component-resolver/master.svg?style=flat)](http://travis-ci.org/mgcrea/babel-plugin-component-resolver)
-[![dependencies status](https://img.shields.io/david/mgcrea/babel-plugin-component-resolver.svg?style=flat)](https://david-dm.org/mgcrea/babel-plugin-component-resolver)
-[![devDependencies status](https://img.shields.io/david/dev/mgcrea/babel-plugin-component-resolver.svg?style=flat)](https://david-dm.org/mgcrea/babel-plugin-component-resolver#info=devDependencies)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/277ead88f60a4326944ed45c2e218a8e)](https://www.codacy.com/app/mgcrea/babel-plugin-component-resolver?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mgcrea/babel-plugin-component-resolver&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/277ead88f60a4326944ed45c2e218a8e)](https://www.codacy.com/app/mgcrea/babel-plugin-component-resolver?utm_source=github.com&utm_medium=referral&utm_content=mgcrea/babel-plugin-component-resolver&utm_campaign=Badge_Coverage)
-[![npm downloads](https://img.shields.io/npm/dm/babel-plugin-component-resolver.svg)](https://www.npmjs.com/package/babel-plugin-component-resolver)
+![status](https://img.shields.io/badge/status-deprecated-red.svg)
 
+**🚧 This module is deprecated and not maintained anymore 🚧**
+
+**Please use [babel-plugin-directory-resolver](https://github.com/mgcrea/babel-plugin-directory-resolver) instead.**
+
+## Readme
 
 Babel plugin to resolve components based on their dirname when an index file is not present.
 
